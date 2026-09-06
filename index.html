@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Read-only Base wallet tracker for public EVM addresses." />
+  <title>Base Wallet Tracker</title>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <span class="eyebrow">BASE · READ ONLY</span>
+        <h1>Base Wallet Tracker</h1>
+        <p>Inspect public wallet balances, token holdings and recent Base activity without connecting a wallet.</p>
+      </div>
+      <span class="status-dot">Base Mainnet</span>
+    </header>
+
+    <section class="panel search-panel">
+      <label for="wallet">Public EVM wallet address</label>
+      <div class="search-row">
+        <input id="wallet" autocomplete="off" spellcheck="false" placeholder="0x..." />
+        <button id="analyze">Analyze</button>
+      </div>
+      <div class="actions-row">
+        <button id="save" class="secondary">Save to watchlist</button>
+        <span id="message" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section id="summary" class="grid hidden">
+      <article class="panel metric"><span>Address</span><strong id="summaryAddress">—</strong></article>
+      <article class="panel metric"><span>ETH balance</span><strong id="ethBalance">—</strong></article>
+      <article class="panel metric"><span>Token positions</span><strong id="tokenCount">—</strong></article>
+      <article class="panel metric"><span>Recent transactions</span><strong id="txCount">—</strong></article>
+    </section>
+
+    <section id="watchlistSection" class="panel">
+      <div class="section-head"><h2>Watchlist</h2><span>Stored locally in this browser</span></div>
+      <div id="watchlist" class="watchlist empty">No saved wallets yet.</div>
+    </section>
+
+    <section id="tokensSection" class="panel hidden">
+      <div class="section-head"><h2>Token holdings</h2><span>Public Base data</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Token</th><th>Symbol</th><th>Balance</th><th>Contract</th></tr></thead>
+          <tbody id="tokensBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="transactionsSection" class="panel hidden">
+      <div class="section-head"><h2>Recent transactions</h2><span>Latest Base activity</span></div>
+      <div id="transactions" class="transactions"></div>
+    </section>
+
+    <footer>
+      Read-only analytics. Never enter a seed phrase or private key. Data source: Base Blockscout.
+    </footer>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
