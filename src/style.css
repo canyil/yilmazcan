@@ -42,10 +42,22 @@ section.panel:not(.search-panel) { padding: 20px; margin-bottom: 18px; }
 .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 14px; }
 .section-head h2 { margin: 0; font-size: 1.15rem; }
 .section-head span { color: #77839b; font-size: .78rem; }
+.section-note { margin: 6px 0 0; color: #7f8ca5; font-size: .8rem; line-height: 1.5; }
 .table-wrap { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; min-width: 680px; }
+table { width: 100%; border-collapse: collapse; min-width: 760px; }
 th, td { text-align: left; padding: 13px 10px; border-bottom: 1px solid #202c42; font-size: .9rem; }
 th { color: #8e9ab3; font-size: .75rem; text-transform: uppercase; letter-spacing: .07em; }
+
+.acquisitions { display: grid; gap: 11px; }
+.acquisition-card { padding: 15px; border: 1px solid #263653; border-radius: 14px; background: linear-gradient(135deg, #0a101d, #0c1528); }
+.acq-main { display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+.acq-main > div { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+.acq-time, .muted { color: #78869f; font-size: .78rem; }
+.acq-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px; }
+.acq-grid div { padding: 10px; border-radius: 10px; background: #080e1a; border: 1px solid #1c2940; }
+.acq-grid span { display: block; color: #71809b; font-size: .7rem; margin-bottom: 5px; }
+.acq-grid strong { font-size: .88rem; overflow-wrap: anywhere; }
+.acq-links { display: flex; gap: 14px; margin-top: 12px; font-size: .78rem; }
 
 .transactions { display: grid; gap: 10px; }
 .tx-card { display: block; padding: 14px; border: 1px solid #222f48; border-radius: 13px; background: #0a101d; color: #dbe6ff; transition: .15s ease; }
@@ -67,12 +79,13 @@ footer { text-align: center; color: #637089; font-size: .78rem; padding: 22px 0 
 @media (max-width: 800px) {
   .hero { flex-direction: column; }
   .grid { grid-template-columns: repeat(2, 1fr); }
+  .acq-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 560px) {
   .shell { width: min(100% - 20px, 1120px); padding-top: 28px; }
   .search-row, .actions-row { flex-direction: column; align-items: stretch; }
-  .grid { grid-template-columns: 1fr; }
-  .tx-meta { flex-direction: column; gap: 4px; }
+  .grid, .acq-grid { grid-template-columns: 1fr; }
+  .tx-meta, .acq-main { flex-direction: column; align-items: flex-start; gap: 4px; }
   .section-head { align-items: flex-start; flex-direction: column; }
 }
